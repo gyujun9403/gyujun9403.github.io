@@ -17,7 +17,7 @@ Minishell에서 가장 복잡하고 변수가 많은 부분은 파싱부라고 �
 | 문자 \ flag | ' Flg | " Flg | $ Flg | Flg 없음 |
 | :----: | :----: | :----:| :----: | :----: |
 | white | 무시 | 무시 | 환경변수대체, 바로뒤면그냥$ | cat, 다음줄 |
-| ' |FlgOFF, cat|무시|무시|cat, FlgON|
+| ' |FlgOFF, cat|무시|환경변수대체, FlgON|cat, FlgON|
 | " |무시|FlgOFF, cat|환경변수대체, FlgON|cat, FlgON|
 | $ |무시|중첩|환경변수대체, FlgON|cat, 환경변수|
 | \| |무시|무시|환경변수대체, 다음리스트|cat, 다음리스트|
@@ -55,7 +55,7 @@ $는 cat할때 해당 환경변수가 가지고 있는 값으로 변환되어 cm
 while(문자열이 끝날때까지)
 {
 	// 다음에 오는 문자를 보고 어떻게 행동할지 + 플래그 재설정
-	result = chk(문자열[idx + slide], 플래그);
+	result = chk(&문자열[idx + slide]);
 	if (result == 공백 || 파이프 || 라다이렉션들 || 코트들) {
 		strlcat(cursor, 문자열[idx], slide);
 		idx += slide;
@@ -88,3 +88,35 @@ while(문자열이 끝날때까지)
 }
 ```
 
+```c
+// 단어를 읽고 검증을 요청하는 함수.
+int request(char **line) {
+
+	return responese()
+}
+
+// 정적인 플래그와, 받은 요청을 바탕으로 행동을 반환하는 함수.
+// 이때 예를 들면 파이프확인 요청 신호와 파이프에 적합한 행동을 하라는 신호가 같다면 조건문처리 할 필요 없이 입력을 그대로 반환하면 된다.
+int response(char ) {
+	static flgs = 0b00000000;
+	// 플래그가 중첩되는건 DQ에서 DL상태 뿐이다.
+	if (SQ플래그 ON상태) {
+		SQ입력입력시 cat하게 하고(의미를 가짐 = 입력 그대로 반환)
+		이외에는 전부 무시하는 동작 반환
+	}
+	else if (DQ플래그 ON상태) {
+		우선 DQ시 cat하게 하는 동작 반환하고
+		DL만 중접플래그 시키고, 나머지는 무시 동작 반환
+	}
+	else if (DL플래그 ON상태) {
+		화이트 : flg unset(cat)
+		DQ, SQ, DL : flg unset(cat) + flg set
+		파이프, 리다이렉션 : flg unset(cat) + 그대로 반환(가능한가...?) -> flg형식으로 반환하면 될듯?
+	}
+	else {
+		각 플래그 입력이면 플래그를 set한다.
+		파이프 및 리다이렉션인 경우 그대로 반환
+	}
+}
+
+```
