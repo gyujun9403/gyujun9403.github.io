@@ -12,3 +12,5 @@ share: true
 1. 우선 기록을 담을 ropo를 내 저장소에 만든다.
 2. 복사할 타인의 repo를 받아온다.그냥 clone 해도 되지만, 잔디만 가져올꺼면 bare clone을 사용한다. `git clone --bare 상대repo`
 3. clone한 타인의 ropo에서 내 repo로 push한다. `push --mirror 내repo`
+
+[참고 블로그](https://soranhan.tistory.com/11)
