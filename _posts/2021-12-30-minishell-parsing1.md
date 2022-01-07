@@ -51,6 +51,28 @@ $는 cat할때 해당 환경변수가 가지고 있는 값으로 변환되어 cm
 	3. 한글자 넘기고 다음 리스트로 간다(명령어 or 파일로 세팅)
 	4. cat할때 현재위치 -1까지 cat한다. x
 
+수정.
+- cursor대신에 버퍼를 이용. char**형의 cmds를 직접적으로 다루다보니 새로운 cmd줄을 추가해야할 때 커서 대신에 cmds에 또 접근해야되서 코드 줄수가 더 늘어나고 깔끔해보이지 않았음. 버퍼를 이용해서 cat하고 다음줄로 넘어가야 할때만 cmds에 접근하여 버퍼를 마지막줄에 추가하고 버퍼를 ""로 새로 할당하면 cmds의 접근을 최소화할 수 있다.
+- 또한 action의 반환값을 문자로 반환하여, 여려 명령을 순서대로 쭉 수행하게 한다.
+예를 들면 그냥 공백을 만난 경우 CJIAW를 반환하여 cat하고, jump하고, index를 옮긴다음, 새 줄을 add하여, 중복된 whitespace를 전부 제거하는 일련의 동작들을 반환하게 한다.
+action의 가지수 : jump, index 옮김, addnewline, cat, env, white, newlist
+CJI : cat하고, jump하고, Index를 옮김.
+-> 지금까지것을들 cat하고 
+
+| 문자 \ flag | ' Flg | " Flg | $ Flg | " \& $ Flg | Flg 없음 |
+| :----: | :----: | :----:| :----: | :----: |:----: |
+| white | J | J | E |EIJ| CJIAW |
+| ' |FlgOFF / CJI |J|ECJI|EIJ|Flgset / CJI|
+| " |J|FlgOFF / CJI| FlgON / EIJ|Flgoff / EJI|FlgON / CJI|
+| $ |J|Flgset / CJI|FlgON / EJI|EJI|CJI|
+| \| |J|J|EJIN|EIJ|CJIN|
+| > |J|J|EJIN|EIJ|CJIN|
+| >> |J|J|EJIN|EIJ|CJIN|
+| < |J|J|EJIN|EIJ|CJIN|
+| << |J|J|EJIN|EIJ|CJIN|
+
+
+
 ```c
 while(문자열이 끝날때까지)
 {
