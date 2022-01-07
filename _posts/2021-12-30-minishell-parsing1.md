@@ -56,8 +56,10 @@ $는 cat할때 해당 환경변수가 가지고 있는 값으로 변환되어 cm
 - 또한 action의 반환값을 문자로 반환하여, 여려 명령을 순서대로 쭉 수행하게 한다.
 예를 들면 그냥 공백을 만난 경우 CJIAW를 반환하여 cat하고, jump하고, index를 옮긴다음, 새 줄을 add하여, 중복된 whitespace를 전부 제거하는 일련의 동작들을 반환하게 한다.
 action의 가지수 : jump, index 옮김, addnewline, cat, env, white, newlist
+
 CJI : cat하고, jump하고, Index를 옮김.
--> 지금까지것을들 cat하고 
+-> 이전까지의 텍스트들을 버퍼로 옮기고, ++slide하고 index += slide하여 방금의 문자를 다음 cat에 반영되지 않게 한다. 
+
 
 | 문자 \ flag | ' Flg | " Flg | $ Flg | " \& $ Flg | Flg 없음 |
 | :----: | :----: | :----:| :----: | :----: |:----: |
