@@ -27,9 +27,14 @@ share: true
 ...</p>
 히어 도큐먼트는 파일 또는 문자열로 취급이 가능하다. 일부 셸은 이것들을 Printf 리터럴로 취급하며 이로써 리터럴 내에서 변수 치환과 명령어 치환을 가능케 한다.
 유닉스 셸에서 기원한 가장 일반적인 히어 도큐먼트 문법은 <<와 그 뒤에 붙는 구분 문자 식별자(종종 EOF 또는 END), 그리고 다음 줄에 인용 텍스트가 시작되며 인용 텍스트를 닫을 때에는 똑같은 구분 문자 식별자가 위치하게 된다. 이러한 문법은 히어 도큐먼트가 스트림 리터럴임을 의미하며 문서의 내용은 선행 명령dml stdin(표준 스트림)으로 리다이렉트된다. 히어 도큐먼트 문법은 "다음 파일로부터 입력을 받는" <인 입력 리다이렉션 문법과 유사하다.</p>
+[위키백과](https://ko.wikipedia.org/wiki/%ED%9E%88%EC%96%B4_%EB%8F%84%ED%81%90%EB%A8%BC%ED%8A%B8)
 ...
 
 heredoc은 유닉스에서 여러 줄(\n)의 블록을 전달할수 있게 하는 리다이렉션의 유형이다.
 
 
-[참고 블로그 1](https://profq.tistory.com/8)
+
+[참고 1](https://profq.tistory.com/8)
+[참고 2](https://rottk.tistory.com/entry/Redirection%EA%B3%BC-Pipe%EC%9D%98-%EC%B0%A8%EC%9D%B4%EA%B0%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80%EC%9A%94)
+[참고 3](https://woorld52.tistory.com/11)
+[참고 4](https://jjeongil.tistory.com/1577)
