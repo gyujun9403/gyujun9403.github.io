@@ -9,7 +9,7 @@ share: true
 ---
 
 ## 파이프
-![img](./minishell_imgs/pipe.001.jpeg)
+![img](/images/pipe001.jpeg)
 우선 부모자식 프로세스는 fork를 통해 pipe(fds)를 같이하게 된다. pipe(fds)를 통해 초기화된 fds는 프로세스간 공유하는 저장공간(파일)의 read only, write onlye 디스크립터들이다. 부모던 자식이던 fds[0]은 read, fds[1]은 write이다.
 하나의 프로세스가 조작해야하는 파이프는 총 2개이다. 이전 프로세스와 연결된 파이프, 이후 프로세스와 연결된 파이프이다. 
 out -> out	연결
