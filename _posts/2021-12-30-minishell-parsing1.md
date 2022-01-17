@@ -147,3 +147,10 @@ int response(char ) {
 
 flg가 변화(ON->OFF, OFF->ON)이 되면 일단 거기까지 cat을 한다.
 `echo "Hi$PATH hello"`의 경우 `$`를 만나는 순가 `Hi`까지 cat, `$`이후 화이트스페이스(공백)까지 가서 환경변수 찾고 cat, 마지막으로 `"`를 만나서 `"`플래그가 OFF되면 `hello`를 cat
+
+
+## $?
+> $? should expands to the exit status of the most recently executed foreground pipeline.
+
+foreground pipeline : 포그라운드에서 실행된 파이프
+즉, minishell에서 $?를 구현한다면 
