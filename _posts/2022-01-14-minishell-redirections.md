@@ -32,7 +32,78 @@ share: true
 
 heredoc은 유닉스에서 여러 줄(\n)의 블록을 전달할수 있게 하는 리다이렉션의 유형이다.
 
+### 동작 예시
+해당부분은 **zsh과 bash의 동작이 상당히 상이하다.**
+zsh는 여러개의 리다이렉션이 걸린경우 순서대로 전부 처리하지만, bash는 마지막거만 처리한다(하지만, >, >>의 경우 파일은 만든다.)
 
+1. `cat <infile`
+```
+indfile
+```
+
+2. `cat <<END`
+```
+heredoc
+```
+[zsh]pipe로 연결된 heredoc 개수마다 `pipe heredoc>`, `pipe pipe heredoc>` 으로 표시됨.
+
+[bash]몇개의 heredoc이 있던지간에 `>`로 표시됨.
+
+3. `$ cat < infile << END`
+```
+[zsh]
+infile
+heredoc
+```
+```
+[bash]
+heredoc
+```
+
+4. `$ cat -n infile | cat << END`
+```
+[zsh]
+	1 infile
+heredoc
+```
+```
+[bash]
+heredoc
+```
+[zsh]infile이 echo되기 전에 heredoc 입력 커서(`pipe heredoc>`)가 먼저 출력되고 heredoc 종료 후 이후 프로세스가 수행됨.
+
+[bash]두번째 `cat << END`에 표준입력으로 파이프와 heredoc이 들어왔지만, 파이프는 완전히 무시되고 heredoc만이 입력된 모습.
+
+
+
+6. `echo hi | cat -n <<END | cat <<END`
+```
+[zsh]
+    1  hi
+    2  heredoc1
+heredoc2
+```
+```
+[bash]
+heredoc2
+```
+[zsh]우선 커서로 `pipe pipe heredoc>`이 출력되고, 첫번째 END까지 받은 입력은 `cat -n <<END`부분에, 이후부터 두번째 END까지 받은 입력은 `cat <<END`에 들어간다.
+
+[bash]나장 나중에 입력되는 표중 입력만이 유효하므로 싹 무시되고 `cat <<END`만이 유효해진다...
+
+7. `cat infile <<END`
+```
+[bash]
+infile
+```
+infile은 cat의 인자이다. 이건 cat프로그램 자체에서 정의하는 동작이다.
+
+8. `cat <<END <infile <<END`
+```
+[bash]
+heredoc2
+```
+bash에선 여러개의 입력이 들어와도 싹 무시되고 마지막거만 유효하다...
 
 [참고 1](https://profq.tistory.com/8)
 [참고 2](https://rottk.tistory.com/entry/Redirection%EA%B3%BC-Pipe%EC%9D%98-%EC%B0%A8%EC%9D%B4%EA%B0%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80%EC%9A%94)
