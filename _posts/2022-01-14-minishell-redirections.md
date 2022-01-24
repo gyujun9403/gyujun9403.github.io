@@ -105,6 +105,12 @@ heredoc2
 ```
 bash에선 여러개의 입력이 들어와도 싹 무시되고 마지막거만 유효하다...
 
+## 구현방식
+### 리다이렉션
+- bash는 파이프와 리다이렉션이 공존할때 리다이렉션이 항상 우선권을 가진다.
+- 또한, 중복되는 입력/출력 리다이렉션들이 있다면, 가장 나중에 오는 리다이렉션만이 유효하다.
+- 
+
 [참고 1](https://profq.tistory.com/8)
 [참고 2](https://rottk.tistory.com/entry/Redirection%EA%B3%BC-Pipe%EC%9D%98-%EC%B0%A8%EC%9D%B4%EA%B0%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80%EC%9A%94)
 [참고 3](https://woorld52.tistory.com/11)
