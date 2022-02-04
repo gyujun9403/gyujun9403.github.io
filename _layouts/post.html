@@ -24,7 +24,7 @@ layout: default
     </ul>
   </div>
 
-  {{ content }}
+  {{ content | toc }}
 
   <!-- Disqus -->
   {% if page.comments != false and site.disqus.id %}
