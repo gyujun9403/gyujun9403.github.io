@@ -7,6 +7,7 @@ tags: [OS]
 comments: true
 share: true
 toc: true
+toc_sticky : true
 ---
 # Chapter02 컴퓨터의 구조와 성능향상
 ## 1. 컴퓨터의 기본 구성
