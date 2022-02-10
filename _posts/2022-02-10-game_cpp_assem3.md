@@ -60,3 +60,5 @@ L1:
 ```
 ![코드 이미지](\images\game_cpp\assembly08.png)
 당장은 stack 이미지를 만들만큼 중요한 내용은 아닌거 같으니... 스택 메모리 강의 19분쯤 참고.
+
+참고 블로그 : [TwoRivers](https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=krquddnr37&logNo=20191417881), [JiR4Vvit의 블로그](https://jiravvit.tistory.com/87), [parksj.log](https://velog.io/@parksj3205/Assembly-%EB%A0%88%EC%A7%80%EC%8A%A4%ED%84%B0)
