@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "C++과 언리얼로 만드는 MMORPG 게임 개발 시리즈 cpp 강의"
+title: "C++ 게임개발 인강02_조건문, 반복문 및 주소/배열"
 description: "리마인드용 이미지, 코드위주로"
 date: 2022-02-09
 tags: [assembly]
@@ -91,3 +91,5 @@ CMAIN:
     xor rax, rax
     ret
 ```
+
+추가 : 만약 위의 배열의 단위가 word라면, 인덱스를 2칸씩 움직여야 하며, 리틀엔디안 빅엔디안또한 고려해줘야 할 수 있다.

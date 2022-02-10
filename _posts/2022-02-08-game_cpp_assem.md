@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "C++과 언리얼로 만드는 MMORPG 게임 개발 시리즈 cpp 강의"
+title: "C++ 게임개발 인강01_기본 입출력, 데이터 저장 및 연산"
 description: "리마인드용 이미지, 코드위주로"
 date: 2022-02-08
 tags: [assembly]
