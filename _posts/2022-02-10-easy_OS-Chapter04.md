@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "쉽게 배우는 OS Chapter04 CPU스케줄10"
+title: "쉽게 배우는 OS Chapter04 CPU스케줄링"
 description: "리마인드용 쉽게배우는 운영체제 핵심만"
 date: 2022-02-10
 tags: [OS]
