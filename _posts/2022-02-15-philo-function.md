@@ -16,9 +16,10 @@ share: true
 pthread.h : POSIX tread.
 
 pthread_t
-![pthread_t 자료형](/images/42seoul/philo/pthread.png)
-
-{% youtube "https://www.youtube.com/watch?v=ho8-vK0L1_8" %}
+![pthread_t 자료구조](/images/42seoul/philo/pthread.png)
+opaque type : 해당 타입에 저장되는 실제 데이터는 시스템의 고유 정보이며, 그 안의 데이터는 사용자가 접근할 수 없다. 따라서 pthread_t를 조작하기 위해서는 API가 제공해주는 thread를 다루는 함수들을 사용해야한다.
+[![영상](https://www.youtube.com/watch?v=TsUOhPsZk6k/0.jpeg)](https://www.youtube.com/watch?v=TsUOhPsZk6k?t=0s)
+참고 : [별준코딩](https://junstar92.tistory.com/229?category=982715), [bigpel66.oopy.io](https://bigpel66.oopy.io/library/c/etc/4)
 
 ### 1.1 pthread_create
 ```c
