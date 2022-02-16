@@ -89,6 +89,5 @@ gems:
   - jekyll-seo-tag
   - jekyll-paginate
   - jekyll-admin
-  - jekyll-youtube
 
 exclude:            [vendor]
