@@ -9,7 +9,7 @@ share: true
 ---
 
 ## 멘데토리 동작방식
-![멘데토리](/images/42seoul/philo/philo(heap).jpeg)
+![멘데토리](/images/42seoul/philo/philo(heap).png)
 철학자 과제는 philo프로세스 내부에 여러개의 철학자 스레드들을 생성하여 생존시키는 과제이다. 해당과제에서 메인스레드의 역할과 나머지 철학자 스레드들의 역할은 다음과 같다.
 - 메인스레드는 die여부, full(음식을 다 먹음)상태를 바쁜대기를 통해 확인하는 역할을 한다. `is_die`데이터를 `write`한다.
 - 철학자 스레드들은 루틴(밥생각자기...)을 실행한다. 밥을 먹고 `philo배열`에서 자기 인덱스의 `die예정 시간`, `full여부`를 갱신(`write`)한다.
@@ -31,16 +31,16 @@ share: true
 
 이후는 아래 이미지에서 설명.
 
-![보너스 포크](/images/42seoul/philo/philo_bonus(fork).jpeg)
+![보너스 포크](/images/42seoul/philo/philo_bonus(fork).png)
 보너스에서 포트는 중앙에 놓여있다. 사용 가능한 포크가 생기면, `sem_wait`에 의해 block되었던 프로세스 중 하나가 (OS에 의해) run state로 집입하게 되에 먹고자고생각하고... 를 수행하게 된다. 당연히 먹고 나서는 포크를 반환한다.
 
-![보너스 배부름](/images/42seoul/philo/philo_bonus(full).jpeg)
+![보너스 배부름](/images/42seoul/philo/philo_bonus(full).png)
 
 3. 각 철학자들은 지정된 회수만큼 식사하면 `sem_post(full)`하여 점유를 하나씩 푼다.
 4. 메인 프로세스(philo_bonus)의 [full]스레드는 철학자 개수만큼 `sem_wait(full)`하고, 그 이후엔 `sem_post(die)`한다(이때 die출력은 하지 않음.).
 5. 모든 철학자 프로세스들을 `kill`하고 할당된 값들을 반환하며 프로그램을 끝낸다.
 
-![보너스 주금](/images/42seoul/philo/philo_bonus(die).jpeg)
+![보너스 주금](/images/42seoul/philo/philo_bonus(die).png)
 
 3. 철학자 프로세스의 [die_chekc]스레드는 하나의 `die_check세마포어`에 의해 한번에 하나씩 돌아가면서 상태를 확인한다. -> 바쁜 대기를 통한 CPU부하 최소화
 4. [die_chekc]스레드에서 죽음이 확인되면 die출력을 하고, `sem_post(die)`를 한다.
