@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "게임서버 교과서_02.네트워크"
+title: "게임서버 공부_네트워크"
 description: "책 내용 + 공부/실습한거"
 date: 2022-03-10
 tags: [network, gameserver]
