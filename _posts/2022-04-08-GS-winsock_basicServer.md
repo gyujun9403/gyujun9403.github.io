@@ -188,3 +188,27 @@ int WSAAPI send(
 - recv()가 언제 반환하는지, 반환값의 상황에 따른 반환값
 - send()의 역할, 인자, 반환값.
 - send()가 언제 반환하는지, 주의할점은 무엇인지.
+
+추가
+netstat -an로 확인.
+통신 성립 전
+![](/images\network\socket_listen.png)
+- server
+	- listen서버 : 0.0.0.0:9000 에서 listen중
+
+통신 설립 후
+![](/images\network\socekt_netstat.png)
+- server
+	- listen서버 : 0.0.0.0:9000 에서 listen중
+	- client서버 : 127.0.0.1:9000 에서 client(127.0.0.1:10919)와 통신 성립
+- client
+	- client : 127.0.0.1:10919에서 clinet서버(127.0.0.1:9000)과 통신 성립
+
+이때 ctrl c 를 하면 책에서는 time_wait없이 그냥 끝난다고 되어있지만, 현재는 개선되었는지 ctrl c를 해도 time_wait상태이다.
+client강제 종료
+![](/images\network\socket_ctrl_c.png)
+- server
+	- listen서버 : 0.0.0.0:9000 에서 listen중
+	- ~client서버 : 127.0.0.1:9000 에서 client(127.0.0.1:10919)와 통신 성립~ 사라짐
+- client
+	- client : 127.0.0.1:10919에서 time_wait상태.
