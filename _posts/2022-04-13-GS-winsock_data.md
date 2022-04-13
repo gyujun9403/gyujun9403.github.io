@@ -228,4 +228,6 @@ inet_ntop()와 InetNtop()둘중 하나로 바꾸라고 하는데... 그 둘의 �
 InetNtop()는 윈도우 특화, inet_ntop().는 ANSI C에서 라고 하는데...
 -> [참조](https://www.winsocketdotnetworkprogramming.com/winsock2programming/winsock2advancedInternet3c.html)
 
+listen등등은 호환함수라고 알고 있도 WSA가 붙은건 윈도우 전용기능을 추가한거라고 알고 있다. 실무에서도 WSA들을 사용하는지?
+
 어떤 책에서 데이터를 json이나 http등으로 보낸다고 들었는데, 그렇다면 특정 단어나 패턴이 나올때까지 파싱하는 구조인가?
