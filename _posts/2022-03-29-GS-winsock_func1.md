@@ -8,10 +8,10 @@ comments: true
 share: true
 ---
 
-## 자주 사용하는 구조체/초기화 모아보기
+## 헷갈리는 구조체/초기화함수 모아보기
+![](/images\network\Winsock_sockaddr.jpeg)
+![](/images\network\Winsock_trans.jpeg)
 SOCKADDR_IN가 사용되는 곳 -> 포트 바인딩 및 클라이언트 accept
-
-
 
 ## 윈속 함수
 ```cpp
