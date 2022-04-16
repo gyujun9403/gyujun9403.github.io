@@ -9,17 +9,8 @@ share: true
 ---
 
 ## 자주 사용하는 구조체/초기화 모아보기
-WSADATA     // 윈속 데이터ㅣ
-SOCKET      // 소켓 디스크립터
-SOCKADDR_IN // 주소 정의용 bind 및 accept사용시 (SOCKADDR*)로 변환
-ZeroMemory(&serveraddr, sizeof(serveraddr));
-serveraddr.sin_family = AF_INET;
-serveraddr.sin_addr.s_addr = htonl(INADDR_ANY); // 아무 IP나 접속 가능
-serveraddr.sin_port = htons(8080);
-
-SOCKADDR_IN에서 사용하는 정보와 초기화 방식
 SOCKADDR_IN가 사용되는 곳 -> 포트 바인딩 및 클라이언트 accept
-socket()함수의 용도와 인자. -> 지정한 방식의 소켓 생성, 통신
+
 
 
 ## 윈속 함수
@@ -74,6 +65,15 @@ SOCKET : 소켓 디스크립터, WSAAPI : Microsoft's socket API
 #include "winsock2.h"
 int WSAAPI closesocket(
   [in] SOCKET s
+);
+
+SOCKET WSAAPI WSASocketA(
+  [in] int                 af,
+  [in] int                 type,
+  [in] int                 protocol,
+  [in] LPWSAPROTOCOL_INFOA lpProtocolInfo,
+  [in] GROUP               g,
+  [in] DWORD               dwFlags
 );
 ```
 인자로 들어온 소켓 디스크립터에 해당하는 소켓을 닫고 리소스를 반환하는 함수.
