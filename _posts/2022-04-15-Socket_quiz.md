@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "게임서버 공부_socket_함수 암기용 퀴즈"
-description: "소켓 함수 기초 퀴즈"
-date: 2022-04-15
+title: "게임서버 공부_socket_함수 퀴즈 / 과제"
+description: "윈속 퀴즈 / 과제"
+date: 2022-04-20
 tags: [winsock, socket, gameserver]
 comments: true
 share: true
@@ -21,3 +21,10 @@ share: true
 - recv()가 언제 반환하는지, 반환값의 상황에 따른 반환값
 - send()의 역할, 인자, 반환값.
 - send()가 언제 반환하는지, 주의할점은 무엇인지.
+
+## 과제 1
+### 1.우선 유니코드 형태로 변경.
+[FormatMessageW ](https://docs.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-formatmessagew)
+, [유니코드 활용](https://lunikism.com/entry/C-%EC%9C%A0%EB%8B%88%EC%BD%94%EB%93%9C%ED%99%98%EA%B2%BD%EC%97%90%EC%84%9C-%EB%8B%AC%EB%9D%BC%EC%A7%80%EB%8A%94-%EC%A3%BC%EC%9A%94-%ED%95%A8%EC%88%98), [InetPtonW ](https://docs.microsoft.com/en-us/windows/win32/api/ws2tcpip/nf-ws2tcpip-inetptonw)
+
+### 2.과제 수행. 
