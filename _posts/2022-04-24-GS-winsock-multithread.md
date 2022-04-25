@@ -29,7 +29,7 @@ HANDLE CreateThread(
   [out, optional] LPDWORD                 lpThreadId          // 스레드 ID저장됨. 필요없을수도.
 );
 ```
-- lpStartAddress가 접근 불가하거나 이상해도 일단 해당 함수는 핸들을 반환. 이때 스레드는 일단 동작하게 되고, 예와가 발생한 다음 스레드가 종료된다.
+- lpStartAddress가 접근 불가하거나 이상해도 해당 함수는 핸들을 반환. 그리고 스레드 동작 후 예외가 발생한 다음 스레드가 종료된다.
 </div>
 </details>
 
@@ -286,11 +286,10 @@ HANDLE CreateEventW(
 <summary> 닫기 - CloseHandle(1) </summary> <div markdown="1">
 
 ```cpp
-#include <winsock.h>
-int getpeername(
-  [in]      SOCKET   s,
-  [out]     sockaddr *name,
-  [in, out] int      *namelen
+#include <handleapi.h>
+// 성공 : TRUE / 실패 : FALSE, 자세한 정보는 GetLastError
+BOOL CloseHandle(
+  [in] HANDLE hObject
 );
 ```
 원격(연결된 상대) 주소 정보(IP, PORT)정보 반환.
@@ -317,10 +316,11 @@ int getpeername(
 <summary> 지역 - getsockname(3) </summary> <div markdown="1">
 
 ```cpp
-#include <handleapi.h>
-// 성공 : TRUE / 실패 : FALSE, 자세한 정보는 GetLastError
-BOOL CloseHandle(
-  [in] HANDLE hObject
+#include <winsock.h>
+int getsockname(
+  [in]      SOCKET   s,
+  [out]     sockaddr *name,
+  [in, out] int      *namelen
 );
 ```
 지역(호스트 = 나) 주소 정보(IP, PORT)정보 반환.
