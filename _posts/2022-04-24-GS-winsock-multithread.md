@@ -18,7 +18,8 @@ share: true
 
 ```cpp
 # include <processthreadsapi.h>
-// 반환 : 스레드 핸들 반환 -> 다른 API 스레드 정보 접근용.
+// 성공 : 스레드 핸들 반환 -> 다른 API 스레드 정보 접근용.
+// 실패 : NULL, 자세한건 GetLastError
 HANDLE CreateThread(
   [in, optional]  LPSECURITY_ATTRIBUTES   lpThreadAttributes, // NULL
   [in]            SIZE_T                  dwStackSize,        // 스택 사이즈, default 사용은 0
@@ -28,6 +29,7 @@ HANDLE CreateThread(
   [out, optional] LPDWORD                 lpThreadId          // 스레드 ID저장됨. 필요없을수도.
 );
 ```
+- lpStartAddress가 접근 불가하거나 이상해도 일단 해당 함수는 핸들을 반환. 이때 스레드는 일단 동작하게 되고, 예와가 발생한 다음 스레드가 종료된다.
 </div>
 </details>
 
@@ -256,6 +258,9 @@ void DeleteCriticalSection(
 
 ```cpp
 #include <synchapi.h>
+// 성공 : 핸들
+// 이미 있음 : ERROR_ALREADY_EXISTS, 자세한 정보는 GetLastError
+// 실패 : NULL, 자세한 정보는 GetLastError
 HANDLE CreateEventW(
   [in, optional] LPSECURITY_ATTRIBUTES lpEventAttributes, // null
   [in]           BOOL                  bManualReset,      // 수동 TRUE / 자동 FALSE
