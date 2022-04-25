@@ -275,8 +275,26 @@ HANDLE CreateEventW(
 </div>
 </details>
 
+<br>
+
 이벤트 대기 : [동기화 객체 state확인 함수들](#15-스레드-종료-대기---동기화-객체-state확인)
 
+<br>
+
+이벤트 제거시 핸들 제거CloseHandle() 사용. [CloseHandle()로 닫는 객체들](https://docs.microsoft.com/en-us/windows/win32/api/handleapi/nf-handleapi-closehandle#remarks)
+<details> 
+<summary> 닫기 - CloseHandle(1) </summary> <div markdown="1">
+
+```cpp
+#include <winsock.h>
+int getpeername(
+  [in]      SOCKET   s,
+  [out]     sockaddr *name,
+  [in, out] int      *namelen
+);
+```
+원격(연결된 상대) 주소 정보(IP, PORT)정보 반환.
+</div> </details>
 
 ## 추가
 ### 소켓 구조체에서 address정보를 얻는 함수.
@@ -299,11 +317,10 @@ int getpeername(
 <summary> 지역 - getsockname(3) </summary> <div markdown="1">
 
 ```cpp
-#include <winsock.h>
-int getsockname(
-  [in]      SOCKET   s,
-  [out]     sockaddr *name,
-  [in, out] int      *namelen
+#include <handleapi.h>
+// 성공 : TRUE / 실패 : FALSE, 자세한 정보는 GetLastError
+BOOL CloseHandle(
+  [in] HANDLE hObject
 );
 ```
 지역(호스트 = 나) 주소 정보(IP, PORT)정보 반환.
