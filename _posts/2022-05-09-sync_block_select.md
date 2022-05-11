@@ -36,3 +36,5 @@ write()함수로 처리한 데이터를 파일에 입력.
 [각각의 관점 참조한 블로그](https://velog.io/@nittre/%EB%B8%94%EB%A1%9C%ED%82%B9-Vs.-%EB%85%BC%EB%B8%94%EB%A1%9C%ED%82%B9-%EB%8F%99%EA%B8%B0-Vs.-%EB%B9%84%EB%8F%99%EA%B8%B0)
 
 [리눅스에서의 block/non-block](https://www.linuxtoday.com/blog/blocking-and-non-blocking-i-0/)
+
+non-blocking과 멀티플랙싱
